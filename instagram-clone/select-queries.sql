@@ -50,6 +50,15 @@ GROUP BY t.id
 ORDER BY COUNT(t.id) DESC
 LIMIT 5;
 
+SELECT
+    t.tag_name,
+    COUNT(t.id) AS 'Number of tags'
+FROM tags t
+    INNER JOIN photo_tags pt
+    ON t.id = pt.tag_id
+GROUP BY t.id
+ORDER BY COUNT(t.id) DESC;
+
 -- Users who have liked every single post on the site
 SELECT
     u.username,
